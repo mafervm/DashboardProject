@@ -1,0 +1,15 @@
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.blue-btn {
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    background: #1e66b4;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+}
