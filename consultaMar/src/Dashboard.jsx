@@ -9,16 +9,23 @@ const Dashboard = () => {
     const [openModal, setOpenModal] = useState(false);
 
   return (
-    <main style={{ padding: "30px"}}>
-        <ActionButtons onOpenBuqueModal= {() => setOpenModal(true)} />
-        <DashboardTable />
-        <BuqueViajeModal 
-        isOpen={openModal}
-        onClose={() => setOpenModal(false)}
-        />
-        <FechaHora/>
-        <Clima/>
-    </main>
+    <main className="dashboard-page">
+  <section className="dashboard-top">
+    <div className="dashboard-widgets">
+      <FechaHora />
+      <Clima />
+    </div>
+
+    <ActionButtons onOpenBuqueModal={() => setOpenModal(true)} />
+  </section>
+
+  <DashboardTable />
+
+  <BuqueViajeModal
+    isOpen={openModal}
+    onClose={() => setOpenModal(false)}
+  />
+</main>
   )
 }
 
