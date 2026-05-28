@@ -1,0 +1,15 @@
+.clima-container {
+  position: absolute;
+  bottom: 15px;
+  left: 30px;
+
+  padding: 10px;
+  text-align: left;
+  border-radius: 10px;
+  font-size: 15px;
+
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+  width: 140px;
+}

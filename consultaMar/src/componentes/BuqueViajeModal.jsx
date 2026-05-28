@@ -12,7 +12,7 @@ const BuqueViajeModal = ({ isOpen, onClose }) => {
 
         <div className="modal-header">
             <h2>
-                Selección de Buque Viajes
+                Selección de Buque-Viajes
             </h2>
 
             <button
@@ -27,7 +27,7 @@ const BuqueViajeModal = ({ isOpen, onClose }) => {
         <div className="modal-body">
             <div className= "search-field">
                 <label> 
-                    Ingresa 3 caracteres para buscar buque viaje: 
+                    Ingresa 3 caracteres para buscar Buque-Viaje: 
                 </label>
                 <div className="search-dropdown">
                     <input
