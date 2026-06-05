@@ -36,7 +36,7 @@ const Clima = () => {
   return (
     <div className="clima-container">
 
-      <h3>Clima Actual</h3>
+      <h3 className="clima-title">Clima Actual</h3>
 
       <p>
         🌡️ {clima.temperature_2m}°C

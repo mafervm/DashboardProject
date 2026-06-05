@@ -1,78 +1,95 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '/styles/BuqueViajeModal.css'
 
-const BuqueViajeModal = ({ isOpen, onClose }) => {
-    if (!isOpen) return null;
+const BuqueViajeModal = ({ isOpen, onClose, onAgregar }) => {
+  const [search, setSearch] = useState('')
+
+  if (!isOpen) return null
+
+  const handleAdd = () => {
+    onAgregar(search)
+    setSearch('')
+  }
+
+  const handleClose = () => {
+    setSearch('')
+    onClose()
+  }
+
   return (
-    <div className="modal-overlay">
-
-      <div className="buque-modal"
-      onClick={(e) => e.stopPropagation()}
+    <div className="modal-overlay" onClick={handleClose}>
+      <div
+        className="buque-modal"
+        onClick={(e) => e.stopPropagation()}
       >
-
         <div className="modal-header">
-            <h2>
-                Selección de Buque-Viajes
-            </h2>
+          <h2>Selección de Buque-Viajes</h2>
 
-            <button
-            type="button" 
-            className="close-button" 
-            onClick={onClose}>
-                x
-            </button>
-
+          <button
+            type="button"
+            className="close-button"
+            onClick={handleClose}
+          >
+            x
+          </button>
         </div>
 
         <div className="modal-body">
-            <div className= "search-field">
-                <label> 
-                    Ingresa 3 caracteres para buscar Buque-Viaje: 
-                </label>
-                <div className="search-dropdown">
-                    <input
-                    type="text"
-                    placeholder= "Buscar buque viaje..."/>
-                    <span 
-                    className= "dropdown-arrow" readOnly>
-                        ⏷
-                    </span>
-                </div>
-            </div>
-
-            <label> 
-                Buque: 
+          <div className="search-field">
+            <label>
+              Buscar tipo de contenedor:
             </label>
-            <input type="text" className="modal-input" readOnly />
 
-            <label> 
-                Buque-Viaje: 
-            </label>
-            <input 
-            type="text" 
-            className="modal-input" 
-            readOnly />
+            <input
+              type="text"
+              className="modal-input"
+              value={search}
+              placeholder="Ingresa el buque a buscar."
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
 
-            <label> 
-                Fecha de llegada: 
-            </label>
-            <input 
+          <label>Buque:</label>
+          <input
             type="text"
-            className="modal-input" 
-            placeholder = "dd/mm/aaaa --:-- ----" 
-            readOnly />
+            className="modal-input"
+            value="Temporal"
+            readOnly
+          />
 
+          <label>Buque-Viaje:</label>
+          <input
+            type="text"
+            className="modal-input"
+            value="11034"
+            readOnly
+          />
+
+          <label>Fecha de llegada:</label>
+          <input
+            type="text"
+            className="modal-input"
+            placeholder="dd/mm/aaaa --:-- ----"
+            readOnly
+          />
         </div>
 
         <div className="modal-footer">
-            <button className= "add-button">
-                Agregar
-            </button>
+          <button
+            type="button"
+            className="add-button"
+            onClick={handleAdd}
+          >
+            Agregar
+          </button>
 
-            <button className= "cancel-button" onClick={onClose}>
-                Cancelar
-            </button>
-
+          <button
+            type="button"
+            className="cancel-button"
+            onClick={handleClose}
+          >
+            Cancelar
+          </button>
         </div>
       </div>
     </div>

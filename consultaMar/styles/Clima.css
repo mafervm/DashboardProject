@@ -1,15 +1,16 @@
 .clima-container {
-
-  bottom: 15px;
-  left: 30px;
-
-  padding: 10px;
+  padding: 1px;
   text-align: left;
   border-radius: 10px;
   font-size: 15px;
-
-
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  width: 160px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-weight: 40;
+}
 
-  width: 140px;
+.clima-title{
+  text-align: center;
 }
