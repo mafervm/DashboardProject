@@ -10,43 +10,31 @@ const Dashboard = () => {
   const [openModal, setOpenModal] = useState(false)
   const [dashData, setDashData] = useState([])
 
-  const getDashboardData = async (searchText = '') => {
+  const getDashboardData = async (intVesselVoyageId) => {
     const response = await fetch('http://10.110.115.30:3009/getVVDash', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        intVesselVoyageId: 11034,
-      }),
+      body: JSON.stringify({ intVesselVoyageId }),
     })
 
     const data = await response.json()
-    const rows = data.rows || []
 
-    if (searchText.trim() === '') {
-      setDashData(rows)
-    } else {
-      const text = searchText.trim().toLowerCase()
-
-      const filteredRows = rows.filter((item) =>
-        item.strContainerTypeIdentifier?.toLowerCase() === text
-      )
-
-      setDashData(filteredRows)
-    }
-
+    setDashData(data.rows || [])
     setOpenModal(false)
   }
 
   return (
     <main className="dashboard-page">
-      <ActionButtons onOpenBuqueModal={() => setOpenModal(true)} />
+      <section className="dashboard-info">
+        <FechaHora />
+        <ActionButtons onOpenBuqueModal={() => setOpenModal(true)} />
+      </section>
 
       <DashboardTable data={dashData} />
 
-      <section className="dashboard-info">
-        <FechaHora />
+      <section className="dashboard-clima">
         <Clima />
       </section>
 

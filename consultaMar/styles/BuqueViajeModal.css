@@ -19,13 +19,13 @@
     overflow: hidden;
 }
 
-.modal-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    padding: 20px 25 px;
-    border-bottom: 1px solid #dddddd;
+  padding: 20px 25px;
+  border-bottom: 1px solid #dddddd;
 }
 
 .modal-header h2{
@@ -125,4 +125,70 @@
 
 .cancel-button{
     background-color: #ef1744;
+}
+
+.combo-container {
+    position: relative;
+    width: 100%;
+}
+
+.combo-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 42px;
+}
+
+.combo-arrow {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    
+    color: #555555;
+    font-size: 14px;
+    padding: 6px;
+}
+
+.combo-options {
+    position: absolute;
+    top: 46px;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+    max-height: 180px;
+    overflow-y: auto;
+
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+
+    z-index: 2000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.combo-option {
+  width: 100%;
+  padding: 10px 12px;
+
+  border: none;
+  background: #ffffff;
+
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.combo-option:hover {
+  background: #f2f2f2;
+}
+
+.combo-empty {
+  padding: 10px 12px;
+  color: #777777;
+  font-size: 14px;
 }
