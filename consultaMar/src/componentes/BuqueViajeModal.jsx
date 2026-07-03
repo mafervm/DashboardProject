@@ -82,9 +82,20 @@ const BuqueViajeModal = ({ isOpen, onClose, onAgregar }) => {
                 setShowOptions(true)
               }}
               onKeyDown={(e) => {
-                if (e.key === 'Enter' && selectedViaje) {
+                if (e.key === 'Enter') {
                   e.preventDefault()
-                  handleAdd()
+
+                  if (selectedViaje) {
+                    handleAdd()
+                    return
+                  }
+                  if (opcionesFiltradas.length > 0) {
+                    handleSelect(opcionesFiltradas[0])
+                    onAgregar(opcionesFiltradas[0].intVesselVoyageId)
+                    setSearch('')
+                    setSelectedViaje(null)
+                    setShowOptions(false)
+                  }
                 }
               }}
             />
