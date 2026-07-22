@@ -1,0 +1,74 @@
+.dashboard-summary {
+  width: 300px;
+  min-width: 300px;
+  height: fit-content;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 10px;
+  align-self: flex-start;
+  overflow: hidden;
+}
+
+.summary-title {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.summary-title h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.summary-title span {
+  display: block;
+  margin-top: 4px;
+  font-size: 20px;
+}
+
+.summary-section {
+  padding: 20px;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.summary-section h3 {
+  margin: 0 0 18px;
+  font-size: 16px;
+}
+
+.summary-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.summary-row {
+  display: grid;
+  grid-template-columns: 70px 1fr 40px;
+  gap: 8px;
+  align-items: center;
+}
+
+.summary-bar {
+  height: 24px;
+  background: #eeeeee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.summary-bar-fill {
+  height: 100%;
+  background: #666666;
+}
+
+.summary-total {
+  padding: 16px 20px;
+  border-top: 1px solid #dcdcdc;
+  font-size: 15px;
+}

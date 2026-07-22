@@ -38,7 +38,18 @@ const DashboardTable = ({ data = [] }) => {
               <td>{String(item.strCraneIdentifier || '').trim() || '—'}</td>
               <td>{String(item.dtExecutionDate || '').trim() || '—'}</td>
               <td>{String(item.strContFisStatusIdentifier || '').trim() || '—'}</td>
-              <td>{String(item.strContainerSealNumber || '').trim() || '—'}</td>
+              <td className="sellos-cell">{String(item.strContainerSealNumber || '').trim() ? (
+                String(item.strContainerSealNumber)
+                  .split(',')
+                  .map((sello, index) => (
+                    <div key={index}>
+                      {sello.trim()}
+                    </div>
+                  ))
+              ) : (
+                '-'
+              )}
+              </td>
               <td>{String(item.strIMOCodeIdentifier || '').trim() || '—'}</td>
               <td>{String(item.strManeuverType || '').trim() || '—'}</td>
               <td>{String(item.decContainerInventoryVGW || '').trim() || '—'}</td>
