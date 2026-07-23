@@ -23,13 +23,13 @@
 
 .summary-title h2 {
   margin: 0;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .summary-title span {
   display: block;
   margin-top: 4px;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .summary-section {
@@ -39,7 +39,7 @@
 
 .summary-section h3 {
   margin: 0 0 18px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .summary-bars {
@@ -70,5 +70,69 @@
 .summary-total {
   padding: 16px 20px;
   border-top: 1px solid #dcdcdc;
-  font-size: 15px;
+  font-size: 14px;
+}
+
+.summary-graph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 16px;
+}
+
+.summary-graph-header h3 {
+  margin: 0;
+}
+
+.clear-graph-button {
+  border: none;
+  border-radius: 4px;
+
+  padding: 6px 10px;
+
+  background: #eeeeee;
+  color: #444444;
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.clear-graph-button:hover {
+  background: #dddddd;
+}
+.summary-empty {
+  padding: 30px 20px;
+  text-align: center;
+  color: #777777;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.summary-graph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.summary-graph-header h3 {
+  margin: 0;
+}
+
+.clear-graph-button {
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+
+  background: #eeeeee;
+  color: #444444;
+
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.clear-graph-button:hover {
+  background: #dddddd;
 }

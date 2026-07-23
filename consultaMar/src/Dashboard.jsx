@@ -11,6 +11,9 @@ const Dashboard = () => {
   const [dashData, setDashData] = useState([])
   const [loading, setLoading] = useState(false)
   const [isAtBottom, setIsAtBottom] = useState(false)
+  const [selectedTipos, setSelectedTipos] = useState([])
+  const [selectedTamanos, setSelectedTamanos] = useState([])
+  const [selectedManiobras, setSelectedManiobras] = useState([])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,19 +70,6 @@ const Dashboard = () => {
     }
   }
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
-  }
-
-  const scrollToBottom = () => {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: 'smooth',
-    })
-  }
 
   return (
     <main className="dashboard-page">
@@ -92,10 +82,27 @@ const Dashboard = () => {
       </section>
 
       <section className="dashboard-content">
-        <DashboardSummary data={dashData} />
+        <DashboardSummary 
+        data={dashData}
+        selectedTipos={selectedTipos}
+        selectedTamanos={selectedTamanos}
+        selectedManiobras={selectedManiobras}
+
+        onClearTipos = {() => setSelectedTipos([])}
+        onClearTamanos = {() => setSelectedTamanos([])}
+        onClearManiobras = {() => setSelectedManiobras([])}
+        />
 
         <div className="dashboard-table-area">
-          <DashboardTable data={dashData} />
+          <DashboardTable 
+          data={dashData}
+          selectedTipos={selectedTipos}
+          setSelectedTipos={setSelectedTipos}
+          selectedTamanos={selectedTamanos}
+          setSelectedTamanos={setSelectedTamanos}
+          selectedManiobras={selectedManiobras}
+          setSelectedManiobras={setSelectedManiobras}
+          />
         </div>
       </section>
 
@@ -114,29 +121,9 @@ const Dashboard = () => {
         </div>
       )}
 
-      <div className="scroll-buttons">
-        {!isAtBottom ? (
-          <button
-            type="button"
-            className="scroll-button"
-            onClick={scrollToBottom}
-            title="Ir al final"
-          >
-            🡣
-          </button>
-        ) : (
-          <button
-            type="button"
-            className="scroll-button"
-            onClick={scrollToTop}
-            title="Ir al inicio"
-          >
-            🡡
-          </button>
-        )}
-      </div>
     </main>
   )
 }
 
 export default Dashboard
+

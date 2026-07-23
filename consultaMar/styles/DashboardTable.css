@@ -40,7 +40,7 @@
   border-bottom: 1px solid #dcdcdc;
   border-right: 1px solid #dcdcdc;
   white-space: nowrap;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .empty-message {
@@ -68,4 +68,61 @@
   white-space: normal;
   min-width: 120px;
   line-height: 1.4
+}
+
+.column-selector {
+  position: relative;
+}
+
+.column-selector-button {
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.column-selector-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 180px;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 200;
+}
+
+.selector-text {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: normal;
+  color: #555555;
+}
+
+.selector-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+  font-size: 12px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.selector-limit{
+  display: block;
+  margin-top: 8px;
+  font-size: 10px;
+  color: #888888;
+}
+
+.selector-option-disabled{
+  opacity: 0.45;
+  cursor: not-allowed;
 }

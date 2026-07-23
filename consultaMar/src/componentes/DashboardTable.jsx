@@ -1,22 +1,107 @@
-import React from "react";
+import React, {useState} from "react";
+import ColumnSelector from "./ColumnSelector";
 import "/styles/DashboardTable.css";
 
-const DashboardTable = ({ data = [] }) => {
+const DashboardTable = ({
+  data = [],
+
+  selectedTipos,
+  setSelectedTipos,
+
+  selectedTamanos,
+  setSelectedTamanos,
+
+  selectedManiobras,
+  setSelectedManiobras,
+}) => {
+
+const [openColumn, setOpenColumn] = useState('')
+
+const tipos = [
+  ...new Set(
+    data
+      .map((item) =>
+        String(
+          item.strContainerTypeIdentifier || ''
+        ).trim()
+      )
+      .filter(Boolean)
+  ),
+]
+
+const tamanos = [
+  ...new Set(
+    data
+      .map((item) =>
+        String(
+          item.strContainerSizeIdentifier || ''
+        ).trim()
+      )
+      .filter(Boolean)
+  ),
+]
+
+const maniobras = [
+  ...new Set(
+    data
+      .map((item) =>
+        String(
+          item.strManeuverType || ''
+        ).trim()
+      )
+      .filter(Boolean)
+  ),
+]
+
   return (
     <div className="table-container">
       <table className="dashboard-table">
         <thead>
           <tr>
             <th>Contenedor</th>
-            <th>Tipo</th>
-            <th>Tamaño</th>
+
+            <th>
+              <ColumnSelector
+              title="Tipo"
+              columnKey="tipo"
+              options={tipos}
+              selected={selectedTipos}
+              setSelected={setSelectedTipos}
+              openColumn={openColumn}
+              setOpenColumn={setOpenColumn}
+              //maxSelections={5}
+              />
+              </th>
+
+            <th>
+              <ColumnSelector
+              title="Tamaño"
+              columnKey="tamano"
+              options={tamanos}
+              selected={selectedTamanos}
+              setSelected={setSelectedTamanos}
+              openColumn={openColumn}
+              setOpenColumn={setOpenColumn}
+              />
+            </th>
+
             <th>Ubicación</th>
             <th>Grua</th>
             <th>F. de Ejecución</th>
             <th>Estado</th>
             <th>Sellos</th>
             <th>IMOs</th>
-            <th>T. Maniobra</th>
+            <th>
+              <ColumnSelector
+              title="T. Maniobra"
+              columnKey="maniobra"
+              options={maniobras}
+              selected={selectedManiobras}
+              setSelected={setSelectedManiobras}
+              openColumn={openColumn}
+              setOpenColumn={setOpenColumn}
+              />
+            </th>
             <th>Peso(kg)</th>
           </tr>
         </thead>
