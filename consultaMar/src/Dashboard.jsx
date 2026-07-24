@@ -61,6 +61,9 @@ const Dashboard = () => {
 
       const data = await response.json()
 
+      setSelectedTipos([])
+      setSelectedTamanos([])
+      setSelectedManiobras([])
       setDashData(data.rows || [])
       setOpenModal(false)
     } catch (error) {
